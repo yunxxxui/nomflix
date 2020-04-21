@@ -17,6 +17,11 @@ const TabList = styled.ul`
 
 const Tab = styled.li`
   margin: 24px;
+  padding-bottom: 4px;
+  color: ${(props) => (props.current ? "white" : "#bdbdbd")};
+  border-bottom: 2px solid
+    ${(props) => (props.current ? "white" : "transparent")};
+  transition: border-bottom 0.5s ease-in-out;
 `;
 
 const TabContent = styled.div``;
@@ -24,38 +29,23 @@ const TabContent = styled.div``;
 const Tabs = withRouter(({ location, result }) => (
   <Container>
     <TabList>
-      <Tab>
-        <NavLink
-          to={`${location.pathname}?video`}
-          current={location.search === "?video" || location.search === ""}
-        >
-          Videos
-        </NavLink>
+      <Tab current={location.search === "?tab=video" || location.search === ""}>
+        <NavLink to={`${location.pathname}?tab=video`}>Videos</NavLink>
       </Tab>
-      <Tab>
-        <NavLink
-          to={`${location.pathname}?production`}
-          current={location.search === "?production"}
-        >
-          Production
-        </NavLink>
+      <Tab current={location.search === "?tab=production"}>
+        <NavLink to={`${location.pathname}?tab=production`}>Production</NavLink>
       </Tab>
-      <Tab>
-        <NavLink
-          to={`${location.pathname}?seasons`}
-          current={location.search === "?seasons"}
-        >
-          Seasons
-        </NavLink>
+      <Tab current={location.search === "?tab=seasons"}>
+        <NavLink to={`${location.pathname}?tab=seasons`}>Seasons</NavLink>
       </Tab>
     </TabList>
 
     <TabContent>
-      {(location.search === "?video" || location.search === "") && (
+      {(location.search === "?tab=video" || location.search === "") && (
         <Video result={result} />
       )}
-      {location.search === "?production" && <Production result={result} />}
-      {location.search === "?seasons" && <Seasons result={result} />}
+      {location.search === "?tab=production" && <Production result={result} />}
+      {location.search === "?tab=seasons" && <Seasons result={result} />}
     </TabContent>
   </Container>
 ));
