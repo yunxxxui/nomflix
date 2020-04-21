@@ -144,6 +144,9 @@ const DetailPresenter = ({ result, error, loading }) =>
             </Item>
             <Divider>·</Divider>
             <Item>
+              <span role="img" aria-label="date">
+                {"👁‍🗨 "}
+              </span>
               {result.genres &&
                 result.genres.map((genre, index) =>
                   index === result.genres.length - 1
