@@ -52,7 +52,7 @@ const Production = ({
                 bgUrl={
                   company.logo_path
                     ? `https://image.tmdb.org/t/p/w300${company.logo_path}`
-                    : null
+                    : require("../assets/Popcorn_Time_logo.png")
                 }
               />
             </Item>

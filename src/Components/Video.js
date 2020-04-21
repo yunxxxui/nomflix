@@ -7,12 +7,26 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const VideoContainer = styled.iframe`
+const Youtube = styled.iframe`
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 720px;
+  height: 480px;
+  margin-bottom: 48px;
 `;
 
-const Video = ({ result }) => <Container></Container>;
+const Video = ({
+  result: {
+    videos: { results: videos },
+  },
+}) => (
+  <Container>
+    {videos.map((video, index) => (
+      <Youtube
+        id={`${index}`}
+        src={`https://www.youtube.com/embed/${video.key}`}
+      />
+    ))}
+  </Container>
+);
 
 export default Video;

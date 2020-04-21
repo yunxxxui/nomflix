@@ -14,7 +14,7 @@ const Item = styled.div`
 
 const Seasons = ({ result: { seasons: seasons } }) => (
   <Container>
-    {seasons && seasons.length > 0 && (
+    {seasons && seasons.length > 0 ? (
       <Item>
         {seasons.map((season) => (
           <SeasonPoster
@@ -26,6 +26,8 @@ const Seasons = ({ result: { seasons: seasons } }) => (
           />
         ))}
       </Item>
+    ) : (
+      <Item>Can't Find Season</Item>
     )}
   </Container>
 );
