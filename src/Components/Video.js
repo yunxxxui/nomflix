@@ -20,12 +20,18 @@ const Video = ({
   },
 }) => (
   <Container>
-    {videos.map((video, index) => (
-      <Youtube
-        id={`${index}`}
-        src={`https://www.youtube.com/embed/${video.key}`}
-      />
-    ))}
+    {videos && videos.length > 0 ? (
+      <>
+        {videos.map((video, index) => (
+          <Youtube
+            id={`${index}`}
+            src={`https://www.youtube.com/embed/${video.key}`}
+          />
+        ))}
+      </>
+    ) : (
+      "Can't find Video"
+    )}
   </Container>
 );
 
