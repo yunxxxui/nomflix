@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   line-height: 1.7;
+  display: flex;
+  justify-content: center;
 `;
 
 const Title = styled.h3`
@@ -11,21 +13,25 @@ const Title = styled.h3`
 `;
 
 const PCompanies = styled.div`
-  margin-bottom: 16px;
+  margin: 16px;
 `;
 
 const PCountries = styled.div`
-  margin-bottom: 16px;
+  margin: 16px;
 `;
 
 const Img = styled.div`
   background-image: url(${(props) => props.bgUrl});
+  background-size: cover;
+  background-position: center center;
   margin-top: 8px;
   width: 100%;
   height: 100px;
 `;
 
 const Item = styled.div`
+  width: 240px;
+  height: auto;
   background-color: #202020;
   border-radius: 8px;
   padding: 16px;

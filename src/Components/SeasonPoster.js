@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const Contaienr = styled.div`
   margin-bottom: 16px;
+  margin-right: 16px;
 `;
 
 const Image = styled.div`
@@ -17,23 +18,12 @@ const Image = styled.div`
   transition: height 0.1s linear;
 `;
 
-const Rating = styled.span`
-  opacity: 0;
-  transition: 0.1s linear;
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-`;
-
 const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 8px;
   &:hover {
     ${Image} {
       opacity: 0.3;
-    }
-    ${Rating} {
-      opacity: 1;
     }
   }
 `;
@@ -51,8 +41,8 @@ const Year = styled.span`
   color: #9e9e9e;
 `;
 
-const Potster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
-  <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
+const SeasonPotster = ({ id, imageUrl, title, year }) => (
+  <Link to={`/show/${id}`}>
     <Contaienr>
       <ImageContainer>
         <Image
@@ -62,12 +52,6 @@ const Potster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
               : require("../assets/Popcorn_Time_logo.png")
           }
         />
-        <Rating>
-          <span rol="img" aria-label="rating">
-            ⭐
-          </span>
-          {rating}/10
-        </Rating>
       </ImageContainer>
       <Title>{title}</Title>
       <Year>{year}</Year>
@@ -75,13 +59,11 @@ const Potster = ({ id, imageUrl, title, rating, year, isMovie = false }) => (
   </Link>
 );
 
-Potster.propTyes = {
+SeasonPotster.propTyes = {
   id: PropTypes.number.isRequired,
   imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
-  rating: PropTypes.number,
   year: PropTypes.number,
-  isMovie: PropTypes.bool,
 };
 
-export default Potster;
+export default SeasonPotster;

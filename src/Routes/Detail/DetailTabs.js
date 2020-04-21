@@ -7,10 +7,12 @@ import Seasons from "../../Components/Seasons";
 
 const Container = styled.div`
   margin: 24px;
+  width: 100%;
 `;
 
 const TabList = styled.ul`
   display: flex;
+  justify-content: center;
 `;
 
 const Tab = styled.li`
